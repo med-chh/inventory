@@ -9,12 +9,13 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('name',255);
             $table->unsignedInteger('quantity');
             $table->unsignedDecimal('buy_price',10,2);
             $table->unsignedDecimal('sale_price',10,2);
-            $table->unsignedInteger('category_id');
+            //$table->unsignedInteger('category_id');
+            $table->foreignId('category_id')->references('id')->on('categories');
             $table->unsignedInteger('media_id')->nullable();
             $table->timestamps();
         });

@@ -9,8 +9,9 @@ class CreateLogsTable extends Migration
     public function up()
     {
         Schema::create('logs', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedInteger('user_id');
+            $table->id();
+            //$table->unsignedInteger('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
