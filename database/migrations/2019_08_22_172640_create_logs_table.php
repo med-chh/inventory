@@ -10,7 +10,6 @@ class CreateLogsTable extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            //$table->unsignedInteger('user_id');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

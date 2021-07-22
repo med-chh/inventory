@@ -24,16 +24,38 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    @auth
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <div class="col-md"><li><a href="{{ route('product.index') }}">{{ 'Productos' }}</a></li></div>
                         <div class="col-md"><li><a href="{{ route('product.create') }}">{{ 'Crear Productos' }}</a></li></div>
                         <div class="col-md"><li><a href="{{ route('user.index') }}">{{ 'Usuarios' }}</a></li></div>
-                        <div class="col-md"><li><a href="{{ route('user.create') }}">{{ 'Crear Usuarois' }}</a></li></div>
+                        <div class="col-md"><li><a href="{{ route('user.create') }}">{{ 'Crear Usuarios' }}</a></li></div>
                         <div class="col-md"><li><a href="{{ route('category.index') }}">{{ 'Categorias' }}</a></li></div>
                         <div class="col-md"><li><a href="{{ route('category.create') }}">{{ 'Crear Categorias' }}</a></li></div>
-                        <div class="col-md"><li><a href="{{ route('group.index') }}">{{ 'Grupos' }}</a></li></div>
+                        <div class="col-md"><li><a href="{{ route('role.index') }}">{{ 'Roles' }}</a></li></div>
                     </ul>
+                    
+                    <ul class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{-- Auth::user()->name --}} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </ul>
+
+
+                    @endAuth
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

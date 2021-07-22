@@ -2,13 +2,13 @@
 
 @section('content')
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+    <div class='container'>
+        <div class='row justify-content-center'>
+            <div class='col-md-8'>
                 <h6>{{ 'LISTA DE PRODUCTOS' }}</h6>
 
-                <div class="container">
-                    <table>
+                <div class='container'>
+                    <table class='table'>
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -21,9 +21,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{--@foreach($PRODUCTS as $product)--}}
+                            @foreach($PRODUCTS as $product)
                             <tr>
-                                <td class="style:10%"><a href="#{{-- route('') --}}"></a></td>
+                                <td class='style:10%''><a href="#{{-- route('') --}}"></a></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -31,9 +31,10 @@
                                 <td></td>
                                 <td></td>
                             </tr>
-                            {{--@endforeach--}}
+                            @endforeach
                         </tbody>
                     </table>
+                    {{ $PRODUCTS->links() }}
                 </div>
             </div>
         </div>

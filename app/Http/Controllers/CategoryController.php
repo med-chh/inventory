@@ -9,37 +9,41 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $CATEGORIES = 'categorias';//Category::all();
-        return view('categories.index_categories',compact('CATEGORIES')); 
+        return view('categories.index_categories',['categories' => Category::all()]);
     }
 
     public function create()
     {
-        return view('categories.create_categorie');
+        return view('categories.create_category');
     }
 
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:categories'
+        ]);
+
+        Category::create($request->all());
+        return redirect()->action([CategoryController::class,'index'])->with('success','Categoria creada correctamente!...');
     }
 
-    public function show(Category $category)
+    public function edit($id)
     {
-        //
+        return view('categories.edit_category',['category' => Category::findOrFail($id)]);
     }
 
-    public function edit(Category $category)
+    public function update(Request $request, $id)
     {
-        //
-    }
-
-    public function update(Request $request, Category $category)
-    {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+        Category::findOrFail($id)->update($request->all());
+        return redirect()->action([Category::class,'index'])->with('success','Categoria actualizada correctamente!...');
     }
 
     public function destroy(Category $category)
     {
-        //
+        Category::findOrFail($id)->delete();
+        return redirect()->action([CategoryController::class,'index'])->with('success','Categoria eliminada correctamente!...');
     }
 }
