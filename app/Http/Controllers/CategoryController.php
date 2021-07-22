@@ -38,10 +38,10 @@ class CategoryController extends Controller
             'name' => 'required'
         ]);
         Category::findOrFail($id)->update($request->all());
-        return redirect()->action([Category::class,'index'])->with('success','Categoria actualizada correctamente!...');
+        return redirect()->action([CategoryController::class,'index'])->with('success','Categoria actualizada correctamente!...');
     }
 
-    public function destroy(Category $category)
+    public function destroy($id)
     {
         Category::findOrFail($id)->delete();
         return redirect()->action([CategoryController::class,'index'])->with('success','Categoria eliminada correctamente!...');

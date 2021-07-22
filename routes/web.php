@@ -18,4 +18,4 @@ Route::resource('user', UserController::class);
 
 Route::resource('role', RoleController::class);
 
-Route::get('logs', [LogController::class, 'index']);
+Route::get('logs', [LogController::class, 'index'])->name('logs.index');

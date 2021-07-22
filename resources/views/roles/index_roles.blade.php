@@ -23,13 +23,13 @@
                     </thead>
                     <tbody>
                         @foreach($roles as $role)
-                            <tr>
-                                <td class="style:10%"><a class="btn btn-sm btn-block btn-success" href="{{ route("role.show", $role->id) }}">{{ $role->id }}</a></td>
-                                <td class="style:60%">{{ $role->name }}</td>
-                                <td class="style:30%">
-                                    <div class="row">
+                        <tr>
+                            <td class="style:10%"><a class="btn btn-sm btn-block btn-success" href="{{ route("role.show", $role->id) }}">{{ $role->id }}</a></td>
+                            <td class="style:60%">{{ $role->name }}</td>
+                            <td class="style:30%">
+                                <div class="row">
                                     <div class="col-sm-3">
-                                        <a class="btn btn-sm btn-block btn-info" href="{{ route("role.edit", $role->id) }}"> Editar </a>
+                                        <a class="btn btn-sm btn-block btn-warning" href="{{ route("role.edit", $role->id) }}"> Editar </a>
                                     </div>
                                     <div class="col-sm-3">
                                         <form role="form" action="{{ route("role.destroy", $role->id) }}" method="POST">
@@ -38,9 +38,9 @@
                                             <button type="submit" class="btn btn-sm btn-block btn-danger"> Elimnar </button>
                                         </form>
                                     </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                </div>
+                            </td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>

@@ -15,7 +15,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        return view('products.index_products',['poducts' => Product::paginate(20)]);
+        return view('products.index_products',['products' => Product::paginate(20)]);
     }
 
     public function create()
@@ -45,7 +45,7 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        return view('products.edit_product',['product' => Product::findOrFail($id)]);
+        return view('products.edit_product',['product' => Product::findOrFail($id), 'categories' => Category::all()]);
     }
 
     public function update(Request $request, $id)
@@ -66,6 +66,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         Product::findOrFail($id)->delete();
-        return redirect()->action([Product::class,'index'])->with('success','Producto eliminado correctamente!...');
+        return redirect()->action([ProductController::class,'index'])->with('success','Producto eliminado correctamente!...');
     }
 }

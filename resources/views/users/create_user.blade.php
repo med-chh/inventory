@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h1 class="display-4 text-center">Crear Usuario</h1>
+                <h1 class="display-4 text-center">CREAR USUARIO</h1>
                 <form role="form" action="{{ route("user.store") }}" method="POST">
                     @csrf
                     <div class="box-body">

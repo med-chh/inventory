@@ -34,6 +34,7 @@
                         <div class="col-md"><li><a href="{{ route('category.index') }}">{{ 'Categorias' }}</a></li></div>
                         <div class="col-md"><li><a href="{{ route('category.create') }}">{{ 'Crear Categorias' }}</a></li></div>
                         <div class="col-md"><li><a href="{{ route('role.index') }}">{{ 'Roles' }}</a></li></div>
+                        <div class="col-md"><li><a href="{{ route('logs.index') }}">{{ 'Logs' }}</a></li></div>
                     </ul>
                     
                     <ul class="nav-item dropdown">
