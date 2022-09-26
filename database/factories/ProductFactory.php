@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Product;
-use App\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Product;
+use App\Models\ModelType;
 
 class ProductFactory extends Factory
 {
@@ -27,8 +27,7 @@ class ProductFactory extends Factory
             'quantity' => $this->faker->numberBetween(0,100),
             'buy_price' => $this->faker->randomFloat(2,10,1000),
             'sale_price' => $this->faker->randomFloat(2,10,10000),
-            'category_id' => Category::all()->random()->id,
-            'media_id' => $this->faker->randomDigitNotNull
+            'model_type_id' => ModelType::all()->random()->id
         ];
     }
 }

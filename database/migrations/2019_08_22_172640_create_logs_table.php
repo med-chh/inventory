@@ -10,6 +10,7 @@ class CreateLogsTable extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
+            $table->string('action', 255);
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

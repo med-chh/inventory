@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -14,9 +14,7 @@ class User extends Authenticatable
     use Notifiable;
     use HasFactory;
 
-    protected $fillable = [
-        'name', 'email', 'password', 'role_id'
-    ];
+    protected $fillable = [ 'name', 'email', 'password', 'status', 'role_id' ];
 
     protected $hidden = [
         'password', 'remember_token',

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +11,7 @@ class Product extends Model
     
     protected $table = 'products';
 
-    protected $fillable = ['name','quantity','buy_price','sale_price','category_id','media_id'];
+    protected $fillable = [ 'name', 'quantity', 'buy_price', 'sale_price', 'model_type_id' ];
 
-    public $timestamps = true;
+    public $timestamps = false;
 }

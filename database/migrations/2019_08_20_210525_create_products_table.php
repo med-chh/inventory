@@ -10,13 +10,11 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name',255);
+            $table->string('name', 255);
             $table->unsignedInteger('quantity');
-            $table->unsignedDecimal('buy_price',10,2);
-            $table->unsignedDecimal('sale_price',10,2);
-            $table->foreignId('category_id')->references('id')->on('categories');
-            $table->unsignedInteger('media_id')->nullable();
-            $table->timestamps();
+            $table->unsignedDecimal('buy_price', 10, 2);
+            $table->unsignedDecimal('sale_price', 10, 2);
+            $table->foreignId('model_type_id')->constrained();
         });
     }
 
