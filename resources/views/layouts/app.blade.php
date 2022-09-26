@@ -9,6 +9,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @livewireStyles
+
 </head>
 
 <body>
@@ -101,5 +104,8 @@
             @yield('content')
         </main>
     </div>
+
+    @livewireScripts
+    
 </body>
 </html>
